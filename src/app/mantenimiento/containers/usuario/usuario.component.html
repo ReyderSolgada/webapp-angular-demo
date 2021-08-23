@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col">
+    <app-usuario-mant
+      *ngIf="showFormUser"
+      [usuarioData]="usuarioData"
+      (saveUserEvent)="onSaveUser($event)"
+    ></app-usuario-mant>
+  </div>
+</div>
+<div class="row">
+  <div class="col text-right">
+    <button class="btn btn-success" (click)="onNewUser()">Nuevo</button>
+  </div>
+</div>
+<div class="row mt-2">
+  <div class="col">
+    <app-usuario-list
+      [listaUsuario]="listaUsuario"
+      (editUserEvent)="onEditUser($event)"
+    ></app-usuario-list>
+  </div>
+</div>

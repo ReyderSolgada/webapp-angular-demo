@@ -1,0 +1,55 @@
+<div class="card">
+  <h5>Lista Usuarios</h5>
+  <p-table
+    [value]="listaUsuario"
+    [paginator]="true"
+    [rows]="10"
+    [showCurrentPageReport]="true"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    [rowsPerPageOptions]="[10, 25, 50]"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Login</th>
+        <th>Email</th>
+        <th>Perfil</th>
+        <th>Fecha última Sesión</th>
+        <th>Estado</th>
+        <th>Acciones</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-usuario>
+      <tr [appHighlight]="usuario.estado?.id">
+        <td>{{ usuario.id }}</td>
+        <td>{{ usuario.nombre }}</td>
+        <td>{{ usuario.login }}</td>
+        <td>{{ usuario.email }}</td>
+        <td>{{ usuario.perfil.nombre.split(",")[0] }}</td>
+        <td>{{ usuario.fechaUltimaSesion }}</td>
+        <td>{{ usuario.estado.descripcion }}</td>
+        <td>
+          <button class="btn btn-info">Perfil</button>
+          <button class="btn btn-success mt-2" (click)="onEditUser(usuario)">
+            Editar
+          </button>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="paginatorleft">
+      <p-button
+        type="button"
+        icon="pi pi-plus"
+        styleClass="p-button-text"
+      ></p-button>
+    </ng-template>
+    <ng-template pTemplate="paginatorright">
+      <p-button
+        type="button"
+        icon="pi pi-cloud"
+        styleClass="p-button-text"
+      ></p-button>
+    </ng-template>
+  </p-table>
+</div>

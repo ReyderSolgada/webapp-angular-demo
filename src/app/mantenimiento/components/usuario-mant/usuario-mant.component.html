@@ -1,0 +1,93 @@
+<div class="row">
+  <div class="col-6">
+    <form [formGroup]="myForm">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputnomape">Nombres y Apellidos</label>
+          <input
+            type="text"
+            class="form-control"
+            id="inputnomape"
+            formControlName="nombres"
+          />
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputLogin4">Login</label>
+          <input
+            type="text"
+            class="form-control"
+            id="inputLogin4"
+            formControlName="login"
+          />
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputEmail">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="inputEmail"
+            formControlName="email"
+          />
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="inputPassword4"
+            formControlName="password"
+          />
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-4">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="gridNoesdominio"
+                formControlName="esAd"
+              />
+              <label class="form-check-label" for="gridCheck">
+                Es dominio
+              </label>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="gridCheckcambiocontrasennia"
+                formControlName="cambioContrasenia"
+              />
+              <label class="form-check-label" for="gridCheck">
+                Cambio contraseña
+              </label>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="gridCheckestado"
+                formControlName="estado"
+              />
+              <label class="form-check-label" for="gridCheck"> Estado </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button
+        class="btn btn-primary"
+        (click)="onSaveUser()"
+        [disabled]="myForm.invalid"
+      >
+        Guardar
+      </button>
+    </form>
+  </div>
+  <div class="col-6"></div>
+</div>
